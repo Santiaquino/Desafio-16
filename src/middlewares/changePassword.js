@@ -19,6 +19,7 @@ export const changePassword = async (req, res, next) => {
 
   jwt.verify(token, config.tokenRestore, function (error, user) {
     req.logger.debug("El token es");
+    req.logger.debug(token);
     if (error) {
       if (error) {
         return res.json({
@@ -39,7 +40,7 @@ export const changePassword = async (req, res, next) => {
     return res.json({ status: "error", error: "La cuenta ya no existe" });
 
   if (isValidPassword(account, password))
-    return res.json({ status: "error", json: "La contraseña es la misma" });
+    return res.json({ status: "error", error: "La contraseña es la misma" });
 
   req.account = account;
   req.password = password;

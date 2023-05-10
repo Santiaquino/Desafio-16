@@ -31,7 +31,7 @@ const schema = new mongoose.Schema({
   thumbnail: String,
   owner: {
     type: String,
-    default: ["admin"],
+    default: "admin",
   },
 });
 

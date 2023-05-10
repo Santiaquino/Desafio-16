@@ -1,5 +1,5 @@
 {
-  "name": "desafio13",
+  "name": "desafio16",
   "version": "1.0.0",
   "description": "Agregando mocking de productos y un customizador para el manejo de errores",
   "main": "app.js",
@@ -30,6 +30,8 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "socket.io": "^4.6.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
     "winston": "^3.8.2"
   },
   "devDependencies": {

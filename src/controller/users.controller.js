@@ -28,16 +28,16 @@ const getAll = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
   try {
-    const { first_name, last_name, email, age } = req.body;
+    const { first_name, last_name, email, password, age } = req.body;
 
-    if (!first_name || !last_name || !email || !age) {
+    if (!first_name || !last_name || !email || !password || !age) {
       req.logger.warning(
-        generateUserErrorInfo({ first_name, last_name, email, age })
+        generateUserErrorInfo({ first_name, last_name, email, password, age })
       );
       CustomError.createError({
         name: "Error al guardar el usuario",
         message: "Ingrese todos los campos",
-        cause: generateUserErrorInfo({ first_name, last_name, email, age }),
+        cause: generateUserErrorInfo({ first_name, last_name, email, password, age }),
         code: enumErrors.INVALID_TYPES_ERROR,
       });
     }
@@ -46,6 +46,7 @@ const createUser = async (req, res, next) => {
       first_name,
       last_name,
       email,
+      password,
       age,
     });
 

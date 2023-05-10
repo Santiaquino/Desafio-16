@@ -18,5 +18,6 @@ export const generateUserErrorInfo = (user) => {
     * el "first_name" del producto era necesario ${user.first_name}
     * el "last_name" del producto era necesario ${user.last_name}
     * el "email" del producto era necesario ${user.email}
+    * el "password" del producto era necesario ${user.password}
     * el "age" del producto era necesario ${user.age}`
 };

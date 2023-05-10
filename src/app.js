@@ -12,6 +12,21 @@ import { Router } from "./routes/index.router.js";
 import errorHandle from "./customError/middlewares/errors/index.js";
 import { addLogger } from "./logs/logger.js";
 import { logger } from "./logs/logger.js";
+import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUiExpress from "swagger-ui-express";
+
+// swagger
+const swaggerOption = {
+  definition: {
+    openapi: "3.0.1",
+    info: {
+      title: "Documentacion de las APIs",
+      description: "APIs que contiene nuestro proyecto",
+    },
+  },
+  apis: [`${__dirname}/docs/*.yaml`],
+};
+const specs = swaggerJSDoc(swaggerOption);
 
 const ins = new MessagesManager();
 
@@ -49,6 +64,9 @@ app.use(addLogger);
 app.use("/", Router);
 // errors
 app.use(errorHandle);
+
+// swagger
+app.use("/apidocs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 
 // chat
 io.on("connection", (socket) => {

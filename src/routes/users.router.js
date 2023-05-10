@@ -11,7 +11,7 @@ router.post("/", async (req, res, next) => {
   controller.createUser(req, res, next);
 });
 
-router.post("/:uid/carts/:cid", async (req, res, next) => {
+router.put("/:uid/carts/:cid", async (req, res, next) => {
   controller.updates(req, res, next);
 });
 

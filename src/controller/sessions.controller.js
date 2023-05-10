@@ -4,9 +4,6 @@ import { isValidPassword, createHash } from "../utils.js";
 import config from "../config/config.js";
 import UsersDTO from "../dao/DTOs/users.dto.js";
 import { transport } from "../utils.js";
-import { ExtractJwt } from "passport-jwt";
-import { addColors } from "winston/lib/winston/config/index.js";
-import passport from "passport";
 
 const insUsers = new UsersManager();
 
@@ -94,8 +91,6 @@ const restore = async (req, res, next) => {
 
     let token = jwt.sign(user, config.tokenRestore, { expiresIn: "1h" });
 
-    console.log(token);
-
     await transport.sendMail({
       from: "santiaaquino4@gmail.com",
       to: `${email}`,
@@ -143,4 +138,4 @@ export default {
   restore,
   current,
   changePassword,
-};
+};

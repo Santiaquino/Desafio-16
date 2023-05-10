@@ -1,8 +1,9 @@
-## Desafio 15 - Practica de intregracion sobre el ecommerce
+## Desafio 16 - Documentar API
 
-- Agregue la carpeta middlewares donde estan los archivos para el manejo del cambio de contraseña.
-- se agrego un nuevo campo para el modelo de usuario llamado "premium".
-- se agrego una nueva ruta llamada "/api/users/premium/:uid" para cambiar el rol de un usuario, puede cambiar de "user" a "premium" y viceversa.
+- Se agrego el paquete de swagger con su configuracion en el app.js para documentar mis APIS
+- Se agrego una carpeta llamada docs donde genero la estructura en formato .yaml con swagger para mostrar la informacion
+- Despues de dar inicio a la ejecucion como dice abajo, hay que ir a la ruta "http://localhost:3000/apidocs/"
+- Alli vamos a ver toda la documentacion necesaria tanto para carritos, productos y usuarios
 
 ### cosas a tener en cuenta:
 

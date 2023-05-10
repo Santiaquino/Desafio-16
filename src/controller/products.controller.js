@@ -28,6 +28,9 @@ const getProducts = async (req, res) => {
         lean: true,
       });
     const products = docs;
+
+    if (products.length === 0) return res.json({status:'Erorr', error: 'no hay productos disponibles'});
+
     query = JSON.stringify(query);
 
     let prevLink = "";
